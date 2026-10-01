@@ -1,7 +1,7 @@
 # 一丁新标签 隐私政策 / Privacy Policy
 
-**生效日期 / Effective date:** 2026-09-29
-**适用版本 / Applies to:** 一丁新标签 (iTab) 3.8.2 及之后版本 / version 3.8.2 and later
+**生效日期 / Effective date:** 2026-10-01
+**适用版本 / Applies to:** 一丁新标签 (iTab) 3.8.6 及之后版本 / version 3.8.6 and later
 
 [中文](#中文) | [English](#english)
 
@@ -22,6 +22,7 @@
 - 外观设置（背景、布局、字号等）；如果你上传了本地背景图片，图片也保存在本地
 - 坚果云 / WebDAV 同步配置（服务器地址、用户名、应用密码），仅当你主动填写时才保存
 - 通过右键菜单"添加到导航书签"时，临时保存的页面标题与网址（用于弹出添加窗口，使用后即删除）
+- 导入备份或从云端恢复前，自动保存的一份本机数据快照（仅用于"撤销上次恢复"，只保留最近一份，不会上传）
 
 卸载本扩展后，上述本地数据会随之被浏览器删除。
 
@@ -65,6 +66,8 @@
 
 本地数据存储在浏览器的扩展存储中，受浏览器和操作系统账户保护。与第三方的网络通信使用 HTTPS（你自行填写的 WebDAV 地址除外，建议使用 HTTPS 地址）。请注意，任何能使用你电脑和浏览器账户的人，也可能看到你保存的书签。
 
+**关于数据丢失：** 导入或恢复备份会覆盖本机当前数据（恢复后可使用"撤销上次恢复"还原最近一次）；卸载扩展会清除本机数据，请在卸载前先导出或备份。云端备份保存在你自己的 WebDAV 服务（如坚果云）中，受该服务的流量和请求频率限制。本扩展不对因误操作、网络故障或第三方服务限制造成的数据丢失承担责任，建议你定期确认备份可用。
+
 ### 八、儿童隐私
 
 本扩展不针对 13 岁以下儿童，也不会有意收集儿童的个人信息。
@@ -94,6 +97,7 @@ The following data is stored only in your browser's local extension storage (`ch
 - Appearance settings (background, layout, font size, etc.), including a background image if you upload one
 - WebDAV / Jianguoyun sync settings (server URL, username, app password), saved only if you enter them
 - The page title and URL temporarily stored when you use the "Add to navigation bookmarks" context menu (deleted after use)
+- A snapshot of your local data saved automatically before you import a backup or restore from the cloud (used only for "Undo last restore"; only the latest one is kept and it is never uploaded)
 
 Uninstalling the Extension removes this local data.
 
@@ -136,6 +140,8 @@ Apart from the above, the Extension does not share data with any third party.
 ### 7. Security
 
 Local data is stored in the browser's extension storage and protected by your browser and operating-system account. Network communication with third parties uses HTTPS (except for a WebDAV address you enter yourself; we recommend using an HTTPS address). Anyone with access to your computer and browser profile may also be able to see your saved bookmarks.
+
+**About data loss:** Importing or restoring a backup overwrites the data currently on this device (you can use "Undo last restore" to revert the most recent one). Uninstalling the Extension removes local data, so please export or back up before uninstalling. Cloud backups are stored in your own WebDAV service (e.g. Jianguoyun) and are subject to that service's traffic and request-rate limits. The Extension is not responsible for data loss caused by user error, network failures, or third-party service limits; we recommend that you check regularly that your backups are usable.
 
 ### 8. Children's privacy
 

@@ -1,7 +1,7 @@
 # 一丁新标签 隐私政策 / Privacy Policy
 
-**生效日期 / Effective date:** 2026-10-01
-**适用版本 / Applies to:** 一丁新标签 (iTab) 3.8.6 及之后版本 / version 3.8.6 and later
+**生效日期 / Effective date:** 2026-10-03
+**适用版本 / Applies to:** 一丁新标签 (iTab) 3.9.0 及之后版本 / version 3.9.0 and later
 
 [中文](#中文) | [English](#english)
 
@@ -23,6 +23,7 @@
 - 坚果云 / WebDAV 同步配置（服务器地址、用户名、应用密码），仅当你主动填写时才保存
 - 通过右键菜单"添加到导航书签"时，临时保存的页面标题与网址（用于弹出添加窗口，使用后即删除）
 - 导入备份或从云端恢复前，自动保存的一份本机数据快照（仅用于"撤销上次恢复"，只保留最近一份，不会上传）
+- 「浏览器书签同步」功能的 WebDAV 设置（服务器地址、用户名、应用密码，仅当你主动填写时才保存），以及清空、下载书签前自动保存的一份浏览器书签快照（仅用于"撤销上次操作"，只保留最近一份，不会上传）
 
 卸载本扩展后，上述本地数据会随之被浏览器删除。
 
@@ -33,7 +34,7 @@
 | `storage` | 在本地保存你的书签和设置 |
 | `tabs` | 在你使用"添加到导航书签"时，读取当前标签页的标题和网址，并在添加后切回原页面 |
 | `contextMenus` | 提供右键菜单"添加到导航书签" |
-| `bookmarks` | 读取浏览器自带书签，用于在新标签页显示书签栏；数据仅在本地显示，不上传 |
+| `bookmarks` | 读取浏览器自带书签，用于在新标签页显示书签栏；并在你使用「浏览器书签同步」时读取、添加或删除浏览器书签（仅在你点击对应菜单后执行） |
 | `https://dav.jianguoyun.com/*` | 访问坚果云 WebDAV，用于你主动发起的备份与恢复 |
 | 可选主机权限 | 仅当你填写其他 WebDAV 服务器地址时，浏览器会弹窗请求你授权访问该服务器；不授权则不会访问 |
 
@@ -44,7 +45,8 @@
 1. **网站图标服务**：为书签自动获取网站图标时，会向以下服务发送该网站的域名或网址：Google（`google.com/s2/favicons`）、DuckDuckGo（`icons.duckduckgo.com`）、`favicon.im`、`api.iowen.cn`、`favicon.cccyun.cc`、`api.7ed.net`。你也可以为书签手动上传图标，避免使用这些服务。
 2. **Unsplash 在线壁纸**：只有当你使用"在线图片"功能时，才会向 `api.unsplash.com` 发送你选择的分类关键词，并从 Unsplash 加载图片。
 3. **WebDAV 同步（你主动配置时）**：当你点击上传、下载、删除备份，或开启自动备份后，本扩展会把备份文件（书签、文件夹、搜索引擎、外观设置）以及你填写的账号和应用密码（HTTP Basic 认证）发送到**你自己配置的** WebDAV 服务器（默认为坚果云）。备份文件由你的服务商保存，开发者无法访问。
-4. **搜索引擎**：你在搜索框中搜索时，页面会跳转到你选择的搜索引擎（如百度、Google、必应等），搜索内容由该搜索引擎按其隐私政策处理。
+4. **浏览器书签同步（你主动使用时）**：当你点击「上传书签」时，本扩展会读取浏览器自带的书签（标题、网址和文件夹结构），保存为文件并连同你填写的账号和应用密码（HTTP Basic 认证）发送到**你自己配置的** WebDAV 服务器（默认为坚果云，建议使用单独的文件夹）；点击「下载书签」时从该服务器读取，并把本机没有的书签添加到浏览器。云端保留最近 3 个版本。这些文件由你的服务商保存，开发者无法访问。该功能与上面的备份同步相互独立，各自使用各自的设置。
+5. **搜索引擎**：你在搜索框中搜索时，页面会跳转到你选择的搜索引擎（如百度、Google、必应等），搜索内容由该搜索引擎按其隐私政策处理。
 
 除上述情况外，本扩展不会与任何第三方共享数据。
 
@@ -66,7 +68,7 @@
 
 本地数据存储在浏览器的扩展存储中，受浏览器和操作系统账户保护。与第三方的网络通信使用 HTTPS（你自行填写的 WebDAV 地址除外，建议使用 HTTPS 地址）。请注意，任何能使用你电脑和浏览器账户的人，也可能看到你保存的书签。
 
-**关于数据丢失：** 导入或恢复备份会覆盖本机当前数据（恢复后可使用"撤销上次恢复"还原最近一次）；卸载扩展会清除本机数据，请在卸载前先导出或备份。云端备份保存在你自己的 WebDAV 服务（如坚果云）中，受该服务的流量和请求频率限制。本扩展不对因误操作、网络故障或第三方服务限制造成的数据丢失承担责任，建议你定期确认备份可用。
+**关于数据丢失：** 导入或恢复备份会覆盖本机当前数据（恢复后可使用"撤销上次恢复"还原最近一次）；「清空本地书签」会删除浏览器里的全部书签（之后可用"撤销上次操作"找回最近一次），「下载书签」只添加本机没有的书签、不删除已有书签；卸载扩展会清除本机数据，请在卸载前先导出或备份。云端备份保存在你自己的 WebDAV 服务（如坚果云）中，受该服务的流量和请求频率限制。本扩展不对因误操作、网络故障或第三方服务限制造成的数据丢失承担责任，建议你定期确认备份可用。
 
 ### 八、儿童隐私
 
@@ -98,6 +100,7 @@ The following data is stored only in your browser's local extension storage (`ch
 - WebDAV / Jianguoyun sync settings (server URL, username, app password), saved only if you enter them
 - The page title and URL temporarily stored when you use the "Add to navigation bookmarks" context menu (deleted after use)
 - A snapshot of your local data saved automatically before you import a backup or restore from the cloud (used only for "Undo last restore"; only the latest one is kept and it is never uploaded)
+- WebDAV settings for the "Browser bookmark sync" feature (server URL, username, app password; saved only if you enter them), and a snapshot of your browser bookmarks saved automatically before you clear or download bookmarks (used only for "Undo last action"; only the latest one is kept and it is never uploaded)
 
 Uninstalling the Extension removes this local data.
 
@@ -108,7 +111,7 @@ Uninstalling the Extension removes this local data.
 | `storage` | Save your bookmarks and settings locally |
 | `tabs` | When you use "Add to navigation bookmarks", read the current tab's title and URL and switch back to the original tab afterward |
 | `contextMenus` | Provide the "Add to navigation bookmarks" right-click menu |
-| `bookmarks` | Read your browser bookmarks to display a bookmarks bar on the new tab page; the data is displayed locally and not uploaded |
+| `bookmarks` | Read your browser bookmarks to display a bookmarks bar on the new tab page; and, when you use "Browser bookmark sync", read, add or delete browser bookmarks (only after you click the corresponding menu item) |
 | `https://dav.jianguoyun.com/*` | Connect to Jianguoyun WebDAV for backup and restore that you initiate |
 | Optional host permissions | Only if you enter another WebDAV server, the browser asks you to grant access to that specific server; without your approval, no access happens |
 
@@ -119,7 +122,8 @@ In the cases below, requests are sent **directly from your browser** to third pa
 1. **Favicon services:** To fetch website icons for your bookmarks, the domain or URL of the site is sent to: Google (`google.com/s2/favicons`), DuckDuckGo (`icons.duckduckgo.com`), `favicon.im`, `api.iowen.cn`, `favicon.cccyun.cc`, and `api.7ed.net`. You can avoid this by uploading icons manually.
 2. **Unsplash online wallpapers:** Only when you use the "online images" feature, the category keyword you choose is sent to `api.unsplash.com`, and images are loaded from Unsplash.
 3. **WebDAV sync (only if you configure it):** When you upload, download, or delete a backup, or enable automatic backup, the Extension sends the backup file (bookmarks, folders, search engines, appearance settings) and the account name and app password you entered (HTTP Basic authentication) to **the WebDAV server you configured** (Jianguoyun by default). The backup is stored by your provider; the developer has no access to it.
-4. **Search engines:** When you search from the search box, the page navigates to the search engine you selected (e.g. Baidu, Google, Bing) and your query is handled under that engine's privacy policy.
+4. **Browser bookmark sync (only when you use it):** When you click "Upload bookmarks", the Extension reads your browser's own bookmarks (titles, URLs and folder structure), saves them as a file and sends it, together with the account name and app password you entered (HTTP Basic authentication), to **the WebDAV server you configured** (Jianguoyun by default; a separate folder is recommended). When you click "Download bookmarks", it reads from that server and adds bookmarks that are missing on this device to your browser. The latest 3 versions are kept in the cloud. These files are stored by your provider; the developer has no access to them. This feature is independent from the backup sync above and uses its own settings.
+5. **Search engines:** When you search from the search box, the page navigates to the search engine you selected (e.g. Baidu, Google, Bing) and your query is handled under that engine's privacy policy.
 
 Apart from the above, the Extension does not share data with any third party.
 
@@ -141,7 +145,7 @@ Apart from the above, the Extension does not share data with any third party.
 
 Local data is stored in the browser's extension storage and protected by your browser and operating-system account. Network communication with third parties uses HTTPS (except for a WebDAV address you enter yourself; we recommend using an HTTPS address). Anyone with access to your computer and browser profile may also be able to see your saved bookmarks.
 
-**About data loss:** Importing or restoring a backup overwrites the data currently on this device (you can use "Undo last restore" to revert the most recent one). Uninstalling the Extension removes local data, so please export or back up before uninstalling. Cloud backups are stored in your own WebDAV service (e.g. Jianguoyun) and are subject to that service's traffic and request-rate limits. The Extension is not responsible for data loss caused by user error, network failures, or third-party service limits; we recommend that you check regularly that your backups are usable.
+**About data loss:** Importing or restoring a backup overwrites the data currently on this device (you can use "Undo last restore" to revert the most recent one). "Clear local bookmarks" deletes all bookmarks in your browser (you can use "Undo last action" to bring back the most recent state), while "Download bookmarks" only adds missing bookmarks and never deletes existing ones. Uninstalling the Extension removes local data, so please export or back up before uninstalling. Cloud backups are stored in your own WebDAV service (e.g. Jianguoyun) and are subject to that service's traffic and request-rate limits. The Extension is not responsible for data loss caused by user error, network failures, or third-party service limits; we recommend that you check regularly that your backups are usable.
 
 ### 8. Children's privacy
 
